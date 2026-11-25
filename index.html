@@ -10,6 +10,8 @@
 <meta property="og:description" content="Sites com endereço, horário e botão de WhatsApp, preço fechado a partir de R$ 497.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="pt-BR" href="https://musashidev23.github.io/musashi-dev/">
+<link rel="alternate" hreflang="en" href="https://musashidev23.github.io/musashi-dev/en/">
 <meta name="theme-color" content="#101114">
 <!-- <link rel="canonical" href="https://musashi.dev/"> : só quando o domínio estiver no ar -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,6 +90,8 @@ button, input { font: inherit; color: inherit; }
 .nav__links a { position: relative; padding: 8px 0; color: var(--paper); opacity: .78; transition: opacity .2s; }
 .nav__links a:hover, .nav__links a.is-on { opacity: 1; }
 .nav__links a.is-on::before { content: ""; position: absolute; left: -12px; top: 50%; width: 5px; height: 5px; margin-top: -3px; border-radius: 50%; background: var(--signal-hi); }
+.nav__links a.nav__lang { color: var(--muted); opacity: 1; }
+.nav__links a.nav__lang:hover { color: var(--paper); }
 .nav__pct { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 4ch; text-align: right; }
 .nav__toggle { display: none; background: none; border: 1px solid var(--line); border-radius: 999px; min-height: 40px; padding: 0 16px; cursor: pointer; }
 @media (max-width: 859px) {
@@ -339,6 +343,7 @@ button, input { font: inherit; color: inherit; }
     <a href="#orcamento">Orçamento</a>
     <a href="#precos">Preços</a>
     <a href="#duvidas">Dúvidas</a>
+    <a class="nav__lang" href="en/" hreflang="en" lang="en">EN</a>
   </nav>
   <span class="nav__pct mono" id="pct" aria-hidden="true">00%</span>
   <button class="nav__toggle mono" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
@@ -669,7 +674,7 @@ button, input { font: inherit; color: inherit; }
 
   /* tudo que depende da rolagem, num quadro só */
   const pct = $('#pct'), flood = $('#flood'), phones = $$('#phones .device');
-  const links = $$('#nav-links a'), targets = links.map(a => $(a.getAttribute('href')));
+  const links = $$('#nav-links a:not(.nav__lang)'), targets = links.map(a => $(a.getAttribute('href')));
   let queued = false;
   const frame = () => {
     queued = false;
