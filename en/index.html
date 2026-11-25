@@ -263,6 +263,16 @@ button, input { font: inherit; color: inherit; }
 .rows__value small { font: 500 11px/1 var(--mono); letter-spacing: .1em; }
 .rows p { color: var(--muted-p); transition: color .3s; max-width: 26em; }
 .rows__foot { margin-top: 24px; color: var(--muted-p); max-width: 52em; }
+.offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: clamp(32px, 4vw, 56px); }
+.offer { border: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); padding: clamp(20px, 2.6vw, 36px); display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.offer--hot { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.offer__tag { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); }
+.offer__title { font: 900 clamp(32px, 3.6vw, 56px)/.92 var(--display); font-stretch: 62%; text-transform: uppercase; letter-spacing: -.01em; }
+.offer__title b { color: var(--signal); font-weight: 900; }
+.offer__title s { font-size: .5em; opacity: .55; margin-left: .2em; }
+.offer p { color: var(--muted-p); max-width: 34em; }
+.offer--hot p { color: color-mix(in srgb, var(--paper) 75%, transparent); }
+@media (max-width: 859px) { .offers { grid-template-columns: 1fr; } }
 @media (hover: hover) {
   .rows li:hover { color: var(--paper); padding-inline: 0; }
   .rows li:hover::before { transform: none; }
@@ -514,6 +524,18 @@ button, input { font: inherit; color: inherit; }
       <li><span class="rows__n mono">+</span><span class="rows__name">Care Plan</span><p>Hosting, updates and small changes every month. Optional.</p><span class="rows__value">$79 <small>/mo</small></span></li>
     </ul>
     <p class="rows__foot">50% to start, 50% when the site goes live. Paid by invoice, with card or bank transfer. You own the site and the domain once it's paid.</p>
+    <div class="offers">
+      <article class="offer offer--hot rv">
+        <span class="offer__tag mono">Founding clients · first 3 only</span>
+        <h3 class="offer__title">One Page for <b>$397</b> <s>$600</s></h3>
+        <p>I'm opening my first spots for US businesses. You get the full One Page site at a launch price. In return, you write a short review and let me show your site in my portfolio.</p>
+      </article>
+      <article class="offer rv">
+        <span class="offer__tag mono">Prefer to pay monthly?</span>
+        <h3 class="offer__title"><b>$99</b> to start, then <b>$79</b>/mo</h3>
+        <p>One Page site, hosting and small changes included, with a 12-month minimum. After 12 months the site is yours, and you can keep or cancel the plan.</p>
+      </article>
+    </div>
   </section>
 
   <section class="sec" id="faq" aria-labelledby="faq-h">
@@ -526,6 +548,7 @@ button, input { font: inherit; color: inherit; }
       <details><summary><span class="mono">04</span><h3>Do I own the website?</h3><span class="faq__x" aria-hidden="true"></span></summary><p>Yes. Once the final payment is in, the site and the domain are yours. If you ever want to move it, I hand over all the files.</p></details>
       <details><summary><span class="mono">05</span><h3>How long does it take?</h3><span class="faq__x" aria-hidden="true"></span></summary><p>3 to 10 business days, depending on the size. The clock starts once I have your content.</p></details>
       <details><summary><span class="mono">06</span><h3>Is the care plan required?</h3><span class="faq__x" aria-hidden="true"></span></summary><p>No. It's $79 a month and optional. It covers hosting, security updates and small edits, like new hours or prices.</p></details>
+      <details><summary><span class="mono">07</span><h3>Can I pay monthly instead?</h3><span class="faq__x" aria-hidden="true"></span></summary><p>Yes. For a One Page site it's $99 to start, then $79 a month with a 12-month minimum. Hosting and small changes are included, and after 12 months the site is yours.</p></details>
     </div>
   </section>
 
